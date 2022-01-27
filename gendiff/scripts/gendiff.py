@@ -4,11 +4,13 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description='Generate diff')
 
-    parser.add_argument('string', metavar='first_line', nargs='+', help='', default='')
-    parser.add_argument('string', metavar='second_line', nargs='+', help='', default='')
+    parser.add_argument('string', metavar='first_line',
+                        help='', default='')
+    parser.add_argument('string', metavar='second_line',
+                        help='', default='')
 
     args = parser.parse_args()
-
+    print(args)
 
 if __name__ == '__main__':
 
