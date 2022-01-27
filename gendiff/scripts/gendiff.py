@@ -8,6 +8,7 @@ def main():
                         help='', default='')
     parser.add_argument('string', metavar='second_line',
                         help='', default='')
+    parser.add_argument('-f', '--format', help='set format of output')
 
     args = parser.parse_args()
     print(args)
