@@ -1,6 +1,6 @@
 import argparse
 import json
-import os
+
 
 def main():
     parser = argparse.ArgumentParser(description='Generate diff')
@@ -16,14 +16,11 @@ def main():
 
 
 def generate_diff(file1, file2):
-    file1 = os.path.join('', file1)
-    file2 = os.path.join('', file2)
-
+    print('hello')
     js1 = json.load(open(file1))
     js2 = json.load(open(file2))
-    js1 = {k: v for k,v in sorted(js1.items(), key=lambda x: x[0])}
-    js2 = {k: v for k,v in sorted(js2.items(), key=lambda x: x[0])}
-    print(js1, js2)
+    js1 = {k: v for k, v in sorted(js1.items(), key=lambda x: x[0])}
+    js2 = {k: v for k, v in sorted(js2.items(), key=lambda x: x[0])}
 
     result = '{\n'
 
@@ -40,15 +37,18 @@ def generate_diff(file1, file2):
             result += f'  - {line1}: {js1[line1]}\n'
 
     for line2 in js2:
-        if not line2 in js1:
+        if line2 not in js1:
             result += f'  + {line2}: {js2[line2]}\n'
 
     result += '}'
 
-    print(result)
+    # print('right from func', result)
+    return result
 
 
 if __name__ == '__main__':
 
     # main()
-    generate_diff('file1.json', 'file2.json')
+    file1 = 'gendiff/tests/fixtures/test1_1.json'
+    file2 = 'gendiff/tests/fixtures/test1_2.json'
+    generate_diff(file1, file2)

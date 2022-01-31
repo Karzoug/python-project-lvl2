@@ -9,14 +9,15 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-flake8 = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+pytest = "^6.2.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-gendiff = "gendiff.scripts.gendiff:main"
-gen_diff = "gendiff.scripts.gendiff:generate_diff"
+gendiff = "gendiff.scripts.gendiff_main:main"
+gen_diff = "gendiff.scripts.gendiff_main:generate_diff"

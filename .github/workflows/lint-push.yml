@@ -1,0 +1,24 @@
+name: lint-push
+on: push
+jobs:
+  lint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python # Set Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install poetry
+      - name: install poetry
+        run: make install
+      - name: build brain games
+        run: make build
+      - name: install linter
+        run: poetry add --dev flake8
+      - name: run linter
+        run: make lint
