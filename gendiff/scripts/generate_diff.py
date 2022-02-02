@@ -77,7 +77,7 @@ def generate_diff(file1, file2):
 
     result = find_diff(fil1, fil2)
 
-    print(result)
-    print(stylish(result))
+    # print(result)
+    # print(stylish(result))
 
     return result

@@ -27,4 +27,6 @@ def stylish(dic):
     result += wrapper(dic, 0)
     result += '}'
 
+    print(result)
+
     return result
