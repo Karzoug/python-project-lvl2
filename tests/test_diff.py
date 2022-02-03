@@ -1,5 +1,5 @@
-from turtle import right
 from gendiff.scripts.gendiff_main import generate_diff
+# from gendiff.scripts.stylish_formatter.stylish import stylish
 
 
 test1_1 = 'tests/fixtures/test1_1.json'

@@ -1,6 +1,7 @@
 import json
 import yaml
-from .stylish import stylish
+from .stylish_formatter.stylish import stylish
+from .plain_formatter.plain import plain
 
 
 def sort_dict(dict_in):
@@ -13,13 +14,13 @@ def sort_dict(dict_in):
             new_dict['    ' + k] = sort_dict(v)
 
     else:
-        new_dict = dict_in
+        new_dict = str(dict_in)
 
     return new_dict
 
 
 # flake8: noqa: C901
-def generate_diff(file1, file2):
+def generate_diff(file1, file2, format='stylish'):
 
     if file1.endswith('.json'):
         fil1 = json.load(open(file1))
@@ -38,9 +39,6 @@ def generate_diff(file1, file2):
         all_set = sorted(set(str1).union(set(str2)))
 
         for line in all_set:
-            
-            if line == 'id':
-                print('DEEEP!!!,fdfd')
 
             try:
                 type1 = isinstance(str1[line], dict)
@@ -51,8 +49,14 @@ def generate_diff(file1, file2):
                 type2 = isinstance(str2[line], dict)
             except KeyError:
                 type2 = None
+            
+            if type1 == False: 
+                str1[line] = str(str1[line])
 
-            if line in str1 and line in str2 and type1 == type2:
+            if type2 == False: 
+                str2[line] = str(str2[line])
+
+            if line in str1 and line in str2:
 
                 # both dict
                 if type1 and type2:
@@ -77,7 +81,9 @@ def generate_diff(file1, file2):
 
     result = find_diff(fil1, fil2)
 
-    # print(result)
-    # print(stylish(result))
-
-    return result
+    if format == 'plain':
+        print(plain(result))
+        return plain(result)
+    else:
+        print(stylish(result))
+        return stylish(result)

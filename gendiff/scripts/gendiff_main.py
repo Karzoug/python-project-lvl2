@@ -1,7 +1,6 @@
 import argparse
 from .generate_diff import generate_diff
 import os
-from .stylish import stylish
 
 
 def main():
@@ -9,11 +8,10 @@ def main():
 
     parser.add_argument('first_line')
     parser.add_argument('second_line')
-    parser.add_argument('-f', '--format',
-                        help='set format of output', default=stylish)
+    parser.add_argument('-f', '--format', default='stylish',
+                        help='set format of output')
 
     args = parser.parse_args()
-    print(vars(args))
 
     file1 = vars(args)['first_line']
     file2 = vars(args)['second_line']
@@ -24,7 +22,7 @@ def main():
     if not file2.startswith('tests'):
         file2 = os.path.join('tests', 'fixtures', file2)
 
-    formatter(generate_diff(file1, file2))
+    generate_diff(file1, file2, formatter)
 
 
 if __name__ == '__main__':
