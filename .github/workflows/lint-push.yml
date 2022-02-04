@@ -16,7 +16,7 @@ jobs:
           pip install poetry
       - name: install poetry
         run: make install
-      - name: build brain games
+      - name: build
         run: make build
       - name: install linter
         run: poetry add --dev flake8

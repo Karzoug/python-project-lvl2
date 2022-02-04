@@ -8,12 +8,12 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 flake8 = "^4.0.1"
 yml = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
-python = "^3.9"
+python = "^3.8"
 flake8 = "^4.0.1"
 pytest = "^6.2.5"
 PyYAML = "^6.0"
