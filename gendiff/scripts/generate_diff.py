@@ -2,6 +2,7 @@ import json
 import yaml
 from .stylish_formatter.stylish import stylish
 from .plain_formatter.plain import plain
+from .json_formatter.json_format import write_to_json
 
 
 def sort_dict(dict_in):
@@ -82,8 +83,11 @@ def generate_diff(file1, file2, format='stylish'):
     result = find_diff(fil1, fil2)
 
     if format == 'plain':
-        print(plain(result))
+        # print(plain(result))
         return plain(result)
+    elif format == 'json':
+        # print(write_to_json(result))
+        return write_to_json(result)
     else:
-        print(stylish(result))
+        # print(stylish(result))
         return stylish(result)
