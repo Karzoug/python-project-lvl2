@@ -9,13 +9,20 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-PyYAML = "^6.0"
 flake8 = "^4.0.1"
 yml = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
+python = "^3.9"
 flake8 = "^4.0.1"
 pytest = "^6.2.5"
+PyYAML = "^6.0"
+
+[tool.pytest]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests",]
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
