@@ -10,6 +10,8 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.9"
 PyYAML = "^6.0"
+flake8 = "^4.0.1"
+yml = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
@@ -21,4 +23,3 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff_main:main"
-gen_diff = "gendiff.scripts.gendiff_main:generate_diff"

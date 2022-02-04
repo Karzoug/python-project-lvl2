@@ -10,12 +10,15 @@ jobs:
           python-version: "3.9"
       - name: checkout repo
         uses: actions/checkout@v2
-      - name: Install pytest
-        run: 
+      - name: Install dependencies
+        run: |
           python3 -m pip install --upgrade pip
-          pip install pytest
-      - name: Install pyyaml
-        run: 
-          pip install pyyaml      
+          pip install poetry
+      - name: install poetry
+        run: make install
+      - name: build gendiff
+        run: make build
+      - name: install tester
+        run: poetry add --dev pytest
       - name: run tester
-        run: pytest tests
+        run: make test

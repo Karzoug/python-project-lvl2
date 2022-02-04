@@ -27,7 +27,5 @@ def main():
 
 if __name__ == '__main__':
 
-    # main()
-    file1 = 'gendiff/tests/fixtures/file1.json'
-    file2 = 'gendiff/tests/fixtures/file2.json'
-    generate_diff(file1, file2)
+    main()
+
