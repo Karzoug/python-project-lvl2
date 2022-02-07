@@ -4,6 +4,7 @@ from gendiff.scripts.gendiff_main import generate_diff
 test1_1 = 'tests/fixtures/file1.yaml'
 test1_2 = 'tests/fixtures/file2.yaml'
 
+
 def test_json_fun():
 
     with open('tests/fixtures/right_result.json', 'r') as right_result_file:
