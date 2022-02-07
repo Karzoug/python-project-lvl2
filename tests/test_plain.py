@@ -9,4 +9,4 @@ def test_plain_fun():
     with open(
         'tests/fixtures/right_result_plain.txt', 'r') as right_result1_file:
         right_result1 = right_result1_file.read()
-        assert generate_diff(test1_1, test1_2, 'plain') == right_result1
+        assert generate_diff(test1_1, test1_2, 'plain') == right_result1[:-1]

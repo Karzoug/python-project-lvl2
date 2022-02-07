@@ -1,4 +1,5 @@
 import json
+from xmlrpc.client import boolean
 import yaml
 from .stylish_formatter.stylish import stylish
 from .plain_formatter.plain import plain
@@ -14,6 +15,8 @@ def sort_dict(dict_in):
         for k, v in sorted(dict_in.items(), key = lambda x: x[0]):
             new_dict['    ' + k] = sort_dict(v)
 
+    elif isinstance(dict_in, int) or isinstance(dict_in, bool):
+        new_dict = dict_in
     else:
         new_dict = str(dict_in)
 
