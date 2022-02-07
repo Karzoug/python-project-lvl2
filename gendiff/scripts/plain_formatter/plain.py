@@ -64,6 +64,7 @@ def plain(dic):
         return wrapper_str
 
     result += wrapper(dic, '')
+    result = result[:-1]
 
     return result
 
