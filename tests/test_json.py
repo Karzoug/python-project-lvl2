@@ -1,8 +1,8 @@
 from gendiff.scripts.gendiff_main import generate_diff
 
 
-test1_1 = 'tests/fixtures/file1.json'
-test1_2 = 'tests/fixtures/file2.json'
+test1_1 = 'tests/fixtures/file1.yaml'
+test1_2 = 'tests/fixtures/file2.yaml'
 
 def test_json_fun():
 

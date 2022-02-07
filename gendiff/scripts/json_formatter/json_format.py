@@ -1,4 +1,3 @@
-from gendiff.scripts.stylish_formatter.stylish import stylish
 import json
 
 
@@ -18,12 +17,15 @@ def write_to_json(dic):
                 in_dict[k] = wrap(v)
             elif v in replace:
                 in_dict[k] = replace[v]
-            elif isinstance(v, int):
-                in_dict[k] = int(v)
+            # elif isinstance(v, bool):
+            #     print(k, v)
+            else:
+                in_dict[k] = v
         return in_dict
 
+    # print('dict before', dic)
     dic = wrap(dic)
-    # print(dic)
+    # print('hello:!', dic)
     result = json.dumps(dic, sort_keys=True, indent=4)
     # print(result)
 
