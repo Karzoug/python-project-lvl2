@@ -86,11 +86,11 @@ def generate_diff(file1, file2, format='stylish'):
     result = find_diff(fil1, fil2)
 
     if format == 'plain':
-        # print(plain(result))
+        print(plain(result))
         return plain(result)
     elif format == 'json':
-        # print(write_to_json(result))
+        print(write_to_json(result))
         return write_to_json(result)
     else:
-        # print(stylish(result))
+        print(stylish(result))
         return stylish(result)

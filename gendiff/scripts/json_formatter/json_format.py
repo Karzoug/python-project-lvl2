@@ -25,7 +25,7 @@ def write_to_json(dic):
     dic = wrap(dic)
     # print(dic)
     result = json.dumps(dic, sort_keys=True, indent=4)
-    print(result)
+    # print(result)
 
     with open('tests/fixtures/result_json.json', 'w') as result_file:
         result_file.write(result)
