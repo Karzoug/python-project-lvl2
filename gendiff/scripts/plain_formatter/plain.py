@@ -20,7 +20,7 @@ def complex(val):
         return '[complex value]'
     elif str(val) in replace:
         return replace[val]
-    elif isinstance(val, int):
+    elif val.isdigit():
         return val
     else:
         return f"'{val}'"
@@ -64,8 +64,6 @@ def plain(dic):
         return wrapper_str
 
     result += wrapper(dic, '')
-    print(result)
-    print('fff')
 
     return result
 
